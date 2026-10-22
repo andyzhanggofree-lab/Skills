@@ -1,85 +1,109 @@
 # Skills
 
-个人 Skill 仓库，用于统一维护技能文件，并在不同设备和 AI 工具之间同步。
+个人 Skill 仓库。将这个仓库直接克隆到本地 Codex 的用户级技能目录 `~/.agents/skills/`，让 Git 同步目录与 Codex 加载目录使用同一个文件夹。
 
-## 仓库结构
+## 目录布局
+
+仓库根目录对应 `~/.agents/skills/`。每个实际技能直接放在根目录下，不再额外嵌套一层 `skills/`。
+
+初始化时包含：
 
 ```text
 Skills/
 ├── README.md
 ├── .gitignore
-├── skills/                         # 可供安装的实际技能
-│   └── .gitkeep                     # 保留空目录；有实际技能后可删除
 └── templates/
     └── skill-template/
-        └── SKILL.md                # 新技能的编写模板
+        └── SKILL.md.template
 ```
 
-目前已完成仓库结构初始化，尚未收录实际技能。已有技能需要另行迁入；设备同步和工具加载需要在各终端配置。
-
-## 添加一个 Skill
-
-1. 将 `templates/skill-template/` 复制到 `skills/<技能名>/`。
-2. 修改 `SKILL.md` 顶部的 `name` 和 `description`。
-3. 将正文中的占位内容替换成完整的操作说明；删除不需要的章节。
-4. 如有需要，在技能目录内添加脚本、参考资料和素材。
-5. 提交并推送修改；其他设备拉取更新。
-
-例如，添加阅读技能后的路径是：
+添加技能后，例如：
 
 ```text
-skills/intelligent-reading/SKILL.md
+~/.agents/skills/                 # 本仓库的本地工作目录
+├── .git/
+├── README.md
+├── templates/
+│   └── skill-template/
+│       └── SKILL.md.template
+├── intelligent-reading/
+│   └── SKILL.md
+└── ontology-modeling/
+    └── SKILL.md
 ```
 
-每个技能使用独立目录，基本结构如下：
+目前尚未收录实际技能。模板使用 `SKILL.md.template` 文件名，避免被 Codex 当作可用的 Skill。
 
-```text
-skills/<技能名>/
-├── SKILL.md            # 必需：名称、描述和执行说明
-├── scripts/            # 可选：可执行脚本
-├── references/         # 可选：参考资料
-└── assets/             # 可选：模板、图片及其他素材
+## 首次接入本地 Codex
+
+以下命令适用于 macOS、Linux 或 WSL，且目标目录不存在或为空：
+
+```sh
+mkdir -p "$HOME/.agents"
+git clone https://github.com/andyzhanggofree-lab/Skills.git "$HOME/.agents/skills"
 ```
+
+如果 `~/.agents/skills/` 已有技能，应先检查并合并已有内容，再将这个目录接入本仓库；如果它已属于其他 Git 仓库或是软链接，还需先确认现有来源，不能直接覆盖或删除。
+
+每台设备单独接入一次。克隆到这台设备的加载目录，不会自动配置其他设备或云端会话。
+
+## 拉取 GitHub 上的更新
+
+开始编辑前，在加载目录中执行：
+
+```sh
+cd "$HOME/.agents/skills"
+git pull --ff-only origin main
+```
+
+拉取后的实际路径是 `~/.agents/skills/<技能名>/SKILL.md`。新增技能与已有技能都处于 Codex 的加载范围，不需要逐个建立链接或复制到另一个目录。
+
+Codex 会自动检测技能变化；如果更新没有显示，可以重启 Codex。Git 拉取仍需执行，上述配置本身不会创建后台自动同步任务。
+
+## 添加并上传一个 Skill
+
+以下以 `my-skill` 为例，请换成实际技能名：
+
+```sh
+cd "$HOME/.agents/skills"
+mkdir -p my-skill
+cp templates/skill-template/SKILL.md.template my-skill/SKILL.md
+```
+
+编辑 `my-skill/SKILL.md`，替换名称、描述和正文中的占位内容。按需添加 `scripts/`、`references/` 和 `assets/`。
+
+确认文件后，在同一目录提交并上传：
+
+```sh
+git status --short
+git add -- my-skill/
+git commit -m "Add or update my-skill"
+git push origin main
+```
+
+其他设备再执行拉取命令，即可获取这次修改。推送需要这台设备已配置好你的 GitHub 写入认证。
 
 ## 编写约定
 
-- 文件名固定为 `SKILL.md`，保留大写；文件使用 UTF-8 编码。
-- 目录名与 `name` 一致，使用小写英文字母、数字和单个连字符，例如 `intelligent-reading`；不使用空格、连续连字符或首尾连字符，名称不超过 64 个字符。
-- `description` 简要说明技能用途和适用场景，帮助工具判断何时使用。
-- 正文写明所需输入、操作步骤和输出要求；需要工具、依赖或权限时，说明具体条件。
-- 资源路径相对当前技能目录书写，例如 `references/example.md`；避免写入某台设备的绝对路径。
-- 平台专属功能需说明适用工具；相同的文件结构不代表所有平台都能直接执行。
-- 为便于检索，可在下方目录中登记新技能。
+- 每个技能一个目录，必需文件为 `<技能名>/SKILL.md`；文件使用 UTF-8 编码。
+- 目录名与 `SKILL.md` 的 `name` 一致，使用小写英文字母、数字和单个连字符；不使用空格、连续连字符或首尾连字符，名称不超过 64 个字符。
+- `description` 说明用途和适用场景；正文写明输入、操作步骤、输出和所需工具。
+- 资源路径相对当前技能目录书写，例如 `references/example.md`，避免设备专属的绝对路径。
+- 平台专属工具与依赖需在对应技能中说明；共用文件结构不代表所有平台都能执行相同工具。
+- 修改已有技能时，按相同流程提交它的目录；也可以将 `README.md` 等文档改动一并提交。
 
 ## 技能目录
 
-暂无实际技能。添加后可使用以下格式登记：
+暂无实际技能。添加后可登记为：
 
 ```markdown
-- [技能名称](skills/技能目录/SKILL.md)：一句话说明用途。
+- [技能名称](技能目录/SKILL.md)：一句话说明用途。
 ```
 
-## 同步和加载
+## 适用范围
 
-GitHub 保存技能的统一版本。每台设备首次克隆仓库，后续通过 `git pull` 获取更新；修改后提交并推送，其他设备再拉取。
+本布局面向支持本地技能目录发现的 Codex。项目级技能也可以放在对应项目的 `.agents/skills/`，但只对相应项目范围生效。
 
-各工具的安装或链接目标应是 `skills/` 下的具体技能目录。`templates/` 仅用于编写，不作为实际技能安装。完成工具对应的目录配置后，技能才能被该工具发现和使用。
-
-### 接入本地 Codex
-
-仓库目录用于维护源文件，Codex 的加载目录用于发现技能，两者可以通过目录链接连接。仅将仓库下载到普通文件夹，并不等于安装了其中的 Skill。
-
-本地 Codex 的用户级加载目录是 `~/.agents/skills/`，项目级加载目录是项目内的 `.agents/skills/`。Codex 支持链接到其他位置的技能目录，例如：
-
-```text
-~/.agents/skills/<技能名>  ->  <仓库位置>/skills/<技能名>
-```
-
-- 按技能分别建立链接时，已链接技能的文件更新会反映到加载目录；新增技能还需要建立对应链接。
-- 若希望新增技能也进入加载范围，可以将整个仓库的 `skills/` 目录作为用户级加载目录的链接目标；如果加载目录已经存在，应先整合已有技能，不能直接覆盖。
-- Codex 会自动检测技能变化；如果没有显示更新，可以重启 Codex。
-- 用户级配置在每台设备上分别完成；项目级配置只对相应项目范围生效。
-
-云端会话和已安装插件有各自的技能分发机制。将文件放入云端工作区、或修改电脑上的加载目录，并不代表其他环境也已安装这些技能。
+云端会话和已安装插件有各自的技能分发机制。本地目录配置不会自动修改它们；本次仓库初始化也尚未替任何设备完成首次接入。
 
 加载规则参考 [OpenAI 官方说明](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills)。
