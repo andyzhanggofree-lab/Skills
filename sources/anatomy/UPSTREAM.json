@@ -1,0 +1,9 @@
+{
+  "repository": "https://github.com/wheresryan22/anatomy",
+  "commit": "bc943e40c59998be5da61f9d39c6a983b1116099",
+  "downloaded_date": "2026-10-15",
+  "timezone": "Asia/Shanghai",
+  "adapter_version": "0.1.0",
+  "modifications": "Upstream skill and supporting files are unchanged. Added plugin metadata, Chinese usage documentation, provenance and validation report.",
+  "skill_sha256": "1993151ca39afd7880a20d871aacc0ddd348090530d8135dc5ea51af28f25305"
+}

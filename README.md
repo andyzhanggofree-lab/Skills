@@ -6,12 +6,13 @@
 
 仓库根目录对应 `~/.agents/skills/`。每个实际技能直接放在根目录下，不再额外嵌套一层 `skills/`。
 
-初始化时包含：
+仓库包含：
 
 ```text
 Skills/
 ├── README.md
 ├── .gitignore
+├── sources/                     # 已导入技能的版本、来源与许可记录
 └── templates/
     └── skill-template/
         └── SKILL.md.template
@@ -32,7 +33,7 @@ Skills/
     └── SKILL.md
 ```
 
-目前尚未收录实际技能。模板使用 `SKILL.md.template` 文件名，避免被 Codex 当作可用的 Skill。
+已收录五个插件中的 9 个 Skill，见下方技能目录；完整脚本、参考资料、示例与图片随技能保存。模板使用 `SKILL.md.template` 文件名，避免被 Codex 当作可用的 Skill。
 
 ## 首次接入本地 Codex
 
@@ -94,11 +95,19 @@ git push origin main
 
 ## 技能目录
 
-暂无实际技能。添加后可登记为：
+| Skill | 用途 |
+|---|---|
+| [humanizer-zh](humanizer-zh/SKILL.md) | 中文润色，保留事实与作者声音 |
+| [finesse-flow](finesse-flow/SKILL.md) | 协调 Finesse 的需求、界面、术语与视频制作 |
+| [finesse-brief](finesse-brief/SKILL.md) | 明确工作台需求、页面结构与数据模型 |
+| [finesse-ui](finesse-ui/SKILL.md) | 设计、制作和改进网页界面 |
+| [finesse-term](finesse-term/SKILL.md) | 查询交互术语并对齐界面需求 |
+| [frame-smith](frame-smith/SKILL.md) | 编排并制作 Remotion 视频 |
+| [anatomy](anatomy/SKILL.md) | 制作交互式等距机械插图 |
+| [intelligent-reading](intelligent-reading/SKILL.md) | 《如何阅读一本书》的阅读方法 |
+| [book-to-skill](book-to-skill/SKILL.md) | 将书籍或文档转换为知识 Skill |
 
-```markdown
-- [技能名称](技能目录/SKILL.md)：一句话说明用途。
-```
+这些技能来自当前已安装插件的固定版本，来源与许可见 [导入记录](sources/README.md)。Anatomy 的大型静态预览使用无损 gzip 保存；需要时运行 `node anatomy/scripts/restore-previews.mjs`，可校验并还原到原路径。运行技能所需的 Python、Node.js、浏览器或 Remotion 工程需在实际使用的设备上准备；本仓库不包含这些运行环境。
 
 ## 适用范围
 

@@ -1,0 +1,6 @@
+interface:
+  display_name: Finesse 需求规划
+  short_description: 梳理网页工作台的功能、页面结构与数据模型，形成可开发方案
+  default_prompt: 用 $finesse-brief 梳理我的工作台想法，形成可开发的方案。
+policy:
+  allow_implicit_invocation: true

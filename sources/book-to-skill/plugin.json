@@ -1,0 +1,7 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "book-to-skill",
+  "version": "0.1.1",
+  "description": "将书籍与文档转换为可按需读取的知识 Skill；在具有 Python 和文件工具的 Codex 环境中执行。",
+  "license": "MIT"
+}

@@ -1,0 +1,7 @@
+interface:
+  display_name: Finesse 界面设计
+  short_description: 设计和实现品牌网页、工作台、数据看板与移动端交互界面
+  brand_color: '#C8FF4D'
+  default_prompt: 用 $finesse-ui 按现有需求设计并实现网页界面。
+policy:
+  allow_implicit_invocation: true

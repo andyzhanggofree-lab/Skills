@@ -1,0 +1,20 @@
+{
+  "name": "book-to-skill",
+  "version": "0.1.1",
+  "description": "\u5c06\u4e66\u7c4d\u4e0e\u6587\u6863\u8f6c\u6362\u4e3a\u53ef\u6309\u9700\u8bfb\u53d6\u7684\u77e5\u8bc6 Skill\uff1b\u5728\u5177\u6709 Python \u548c\u6587\u4ef6\u5de5\u5177\u7684 Codex \u73af\u5883\u4e2d\u6267\u884c\u3002",
+  "author": {
+    "name": "Workspace upload"
+  },
+  "interface": {
+    "displayName": "book-to-skill",
+    "shortDescription": "\u5c06\u4e66\u7c4d\u4e0e\u6587\u6863\u8f6c\u6362\u4e3a\u53ef\u6309\u9700\u8bfb\u53d6\u7684\u77e5\u8bc6 Skill\uff1b\u5728\u5177\u6709 Python \u548c\u6587\u4ef6\u5de5\u5177\u7684 Codex \u73af\u5883\u4e2d\u6267\u884c\u3002",
+    "longDescription": "\u5c06\u4e66\u7c4d\u4e0e\u6587\u6863\u8f6c\u6362\u4e3a\u53ef\u6309\u9700\u8bfb\u53d6\u7684\u77e5\u8bc6 Skill\uff1b\u5728\u5177\u6709 Python \u548c\u6587\u4ef6\u5de5\u5177\u7684 Codex \u73af\u5883\u4e2d\u6267\u884c\u3002",
+    "developerName": "Workspace upload",
+    "category": "Other",
+    "capabilities": [],
+    "defaultPrompt": null
+  },
+  "keywords": [],
+  "license": "MIT",
+  "skills": "./skills"
+}

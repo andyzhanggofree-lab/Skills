@@ -1,0 +1,6 @@
+interface:
+  display_name: "Humanizer 中文润色"
+  short_description: "减少中文空话和模板表达，保留事实与作者声音"
+  default_prompt: "请用 $humanizer-zh 润色这段中文，保留事实、语气和作者立场。"
+policy:
+  allow_implicit_invocation: true

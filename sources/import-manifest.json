@@ -1,0 +1,117 @@
+{
+  "format_version": 1,
+  "imported_on": "2026-10-22",
+  "timezone": "Asia/Shanghai",
+  "source": "Current installed plugin releases",
+  "skill_files_imported": 309,
+  "layout": "skills/<name>/... in each plugin becomes <name>/... in this repository",
+  "source_metadata_directory": "sources/<plugin-name>/",
+  "preservation": "All original skill files are retained directly or losslessly in gzip archives. Anatomy SKILL.md adds preview restoration instructions; its original is retained in sources/anatomy/original-SKILL.md. Original license copies were added to book-to-skill and finesse-flow.",
+  "plugins": [
+    {
+      "name": "humanizer-zh",
+      "display_name": "Humanizer",
+      "plugin_id": "plugins_6ad2b424464081919ba3f78ce1f8e758",
+      "version": "1.0.0",
+      "release_id": "pluginrel_6ad2b4266fc88191b9fe8a2b83efea4e",
+      "skills": [
+        "humanizer-zh"
+      ],
+      "skill_file_count": 5,
+      "upstream": {
+        "repository": "https://github.com/op7418/Humanizer-zh",
+        "commit": "f4518a8eab97b8bfebc66a89d34320a89bef6930"
+      }
+    },
+    {
+      "name": "finesse-suite",
+      "display_name": "Finesse",
+      "plugin_id": "plugins_6ad2ae0d93848191887dbe414e3ba36c",
+      "version": "1.0.0",
+      "release_id": "pluginrel_6ad2ae0fc1d081919e8897295e658d83",
+      "skills": [
+        "finesse-brief",
+        "finesse-flow",
+        "finesse-term",
+        "finesse-ui",
+        "frame-smith"
+      ],
+      "skill_file_count": 101,
+      "upstream": {
+        "skills": {
+          "finesse-ui": {
+            "repository": "https://github.com/mouse-lin/finesse-skill",
+            "commit": "5050b6c71e27b829d1b3087d2be889d29c60db00"
+          },
+          "finesse-brief": {
+            "repository": "https://github.com/mouse-lin/finesse-brief",
+            "commit": "d1f45618b605587b882a20d72eb0d8ec666990bd"
+          },
+          "finesse-term": {
+            "repository": "https://github.com/mouse-lin/finesse-term",
+            "commit": "e7a60e819af587ec5c310e46df3a8187e7ce27d9"
+          },
+          "frame-smith": {
+            "repository": "https://github.com/mouse-lin/frame-smith",
+            "commit": "44b7e716971b46ab801f302d3ba34c5b61442e9f"
+          },
+          "finesse-flow": {
+            "origin": "Local plugin integration"
+          }
+        }
+      }
+    },
+    {
+      "name": "anatomy",
+      "display_name": "Anatomy",
+      "plugin_id": "plugins_6ad0404b264c8191bd7b27ed6b02bf24",
+      "version": "0.1.0",
+      "release_id": "pluginrel_6ad040516a988191831e615309efce99",
+      "skills": [
+        "anatomy"
+      ],
+      "skill_file_count": 147,
+      "upstream": {
+        "repository": "https://github.com/wheresryan22/anatomy",
+        "commit": "bc943e40c59998be5da61f9d39c6a983b1116099"
+      }
+    },
+    {
+      "name": "intelligent-reading",
+      "display_name": "How to read a book",
+      "plugin_id": "Plugin_442c0912abe08191addb58b35d7ec2bc",
+      "version": "1.0.0",
+      "release_id": "pluginrel_6acce01c1060819198ec2a5aac4db70a",
+      "skills": [
+        "intelligent-reading"
+      ],
+      "skill_file_count": 28,
+      "upstream": {
+        "origin": "Knowledge skill generated from a user-provided Chinese EPUB of How to Read a Book",
+        "provenance": "intelligent-reading/provenance.md",
+        "github_repository_recorded": false
+      }
+    },
+    {
+      "name": "book-to-skill",
+      "display_name": "book-to-skill",
+      "plugin_id": "Plugin_dd53383e5e6c8191a1076c8666c44ea2",
+      "version": "0.1.1",
+      "release_id": "pluginrel_6ad0473488388191b0af1a0dd472d18a",
+      "skills": [
+        "book-to-skill"
+      ],
+      "skill_file_count": 28,
+      "upstream": {
+        "repository": "https://github.com/virgiliojr94/book-to-skill",
+        "commit": "a24e62f4d8caf2ee433f6e48d9073800f56f906e"
+      }
+    }
+  ],
+  "compressed_previews": {
+    "count": 10,
+    "manifest": "anatomy/previews.manifest.json",
+    "restore": "node anatomy/scripts/restore-previews.mjs",
+    "original_sha256_in_manifest": true
+  }
+}
