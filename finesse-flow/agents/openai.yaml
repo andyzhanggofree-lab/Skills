@@ -1,6 +1,0 @@
-interface:
-  display_name: Finesse 总控
-  short_description: 按需求协调工作台规划、网页设计、术语对齐与宣传视频制作
-  default_prompt: 用 $finesse-flow 帮我从想法到实现，完成一个财务工作台。
-policy:
-  allow_implicit_invocation: true

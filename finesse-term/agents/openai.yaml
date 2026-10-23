@@ -1,6 +1,0 @@
-interface:
-  display_name: Finesse 术语对齐
-  short_description: 将网页与移动端的口语描述转成准确需求，并提示相关实现问题
-  default_prompt: 用 $finesse-term 把我的界面描述转成准确的开发需求。
-policy:
-  allow_implicit_invocation: true

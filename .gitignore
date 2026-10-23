@@ -10,15 +10,3 @@ __pycache__/
 .env
 .env.*
 !.env.example
-
-# Large generated previews are tracked as lossless gzip archives.
-/anatomy/examples/arcade-cabinet/arcade-cabinet-light.html
-/anatomy/examples/arcade-cabinet/arcade-cabinet.html
-/anatomy/examples/raptor-engine/raptor-engine-light.html
-/anatomy/examples/raptor-engine/raptor-engine.html
-/anatomy/examples/ripple-tank/ripple-tank-light.html
-/anatomy/examples/ripple-tank/ripple-tank.html
-/anatomy/examples/turning-dial/turning-dial-light.html
-/anatomy/examples/turning-dial/turning-dial-verify-light.html
-/anatomy/examples/turning-dial/turning-dial.html
-/anatomy/examples/turning-dial/turning-stress-light.html
